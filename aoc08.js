@@ -14,13 +14,13 @@ Object
 . map(a => a
 . for(u => a
 . for(v => {
-		if (u == v) return
-		let i = v[0]
-		let j = v[1]
-		let y = i - u[0]
-		let x = j - u[1]
-		add(p1, i + y, j + x)
-		while (add(p2, i, j)) i += y, j += x
+  if (u == v) return
+  let i = v[0]
+  let j = v[1]
+  let y = i - u[0]
+  let x = j - u[1]
+  add(p1, i + y, j + x)
+  while (add(p2, i, j)) i += y, j += x
 })))
 
 log({ p1: len(p1) })
