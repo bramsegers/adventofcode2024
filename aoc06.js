@@ -10,24 +10,24 @@ let [y, x] = pos(map, '^')
 let key = (y, x, d) => (y << 10) | (x << 2) | d
 
 let exit = (y, x, d, s) => {
-	let u = y + dir[d][0]
-	let v = x + dir[d][1]
-	if (!map[y] || !map[y][x]) return arr(s)
-	if (!s.add(key(y, x, d))) return
-	return map[u] && map[u][v] == '#'
-		? exit(y, x, ++d & 3, s)
-		: exit(u, v, d, s)	 
+  let u = y + dir[d][0]
+  let v = x + dir[d][1]
+  if (!map[y] || !map[y][x]) return arr(s)
+  if (!s.add(key(y, x, d))) return
+  return map[u] && map[u][v] == '#'
+    ? exit(y, x, ++d & 3, s)
+    : exit(u, v, d, s)	 
 }
 
 arr(set(exit(y, x, 0, set())
-.	map(e => e >> 2)))
-.	map(e => [e >> 8, e & 255])
-.	for(([i, j]) => {
-	if (map[i][j] != '^')
-		map[i][j] = '#',
-		p1 += 1,
-		p2 += !exit(y, x, 0, set()),
-		map[i][j] = '.'
+. map(e => e >> 2)))
+. map(e => [e >> 8, e & 255])
+. for(([i, j]) => {
+  if (map[i][j] != '^')
+    map[i][j] = '#',
+    p1 += 1,
+    p2 += !exit(y, x, 0, set()),
+    map[i][j] = '.'
 })
 
 log({ p1 })
