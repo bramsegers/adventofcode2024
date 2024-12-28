@@ -20,13 +20,13 @@ let exit = (y, x, d, s) => {
 }
 
 arr(set(exit(y, x, 0, set())
-.	map(e => e >> 2)))
-.	map(e => [e >> 8, e & 255])
-.	for(([i, j]) => {
-		p1++,
-		map[i][j] = '#',
-		p2 += !exit(y, x, 0, set()),
-		map[i][j] = '.'
+. map(e => e >> 2)))
+. map(e => [e >> 8, e & 255])
+. for(([i, j]) => {
+    p1++,
+    map[i][j] = '#',
+    p2 += !exit(y, x, 0, set()),
+    map[i][j] = '.'
 })
 
 log({ p1 })
