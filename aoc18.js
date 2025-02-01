@@ -21,8 +21,12 @@ let f = n => {
   }
 }
 
+let bs = (a, b, m = (a + b) >> 1) => a > b ? byt[a] : f(m + 1) ? bs(m + 1, b) : bs(a, m - 1)
+
 let p1 = f(1024)
-let p2 = str(byt.find((_, i) => !f(i + 1)))
+// let p2 = str(byt.find((_, i) => !f(i + 1)))
+// p2 can be binary searched. thanks to roomens for this great suggestion! <3
+let p2 = str(bs(0, len(byt) - 1))
 
 log({ p1 })
 log({ p2 })
